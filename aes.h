@@ -87,5 +87,6 @@ void invMixColumn(unsigned char *column);
 void aes_invRound(unsigned char *state, unsigned char *roundKey);
 void aes_invMain(unsigned char *state, unsigned char *expandedKey, int nbrRounds);
 void hexStringToBytes(const char *hexString, unsigned char *byteArray, int byteArraySize);
+void bytesToAscii(const unsigned char *bytes, int length, char *asciiStr);
 
 #endif

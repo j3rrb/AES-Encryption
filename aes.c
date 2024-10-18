@@ -71,7 +71,24 @@ int main(int argc, char *argv[])
     }
     printf("\n");
 
+    printf("\nTexto descriptografado (Plano):\n");
+    unsigned char bytes_arr[16];
+    hexStringToBytes(hex_plain_text, bytes_arr, 16);
+    int length = sizeof(bytes_arr) / sizeof(bytes_arr[0]);
+    char asciiStr[length + 1];
+    bytesToAscii(bytes_arr, length, asciiStr);
+    printf("%s", asciiStr);
+    printf("\n");
+
     return 0;
+}
+
+// Transforma bytes em ASCII
+void bytesToAscii(const unsigned char *bytes, int length, char *asciiStr) {
+    for (int i = 0; i < length; i++) {
+        asciiStr[i] = (char)bytes[i];  // Converte o byte para char
+    }
+    asciiStr[length] = '\0';  // Adiciona o terminador nulo no final da string
 }
 
 // Transforma strings HEX em bytes
